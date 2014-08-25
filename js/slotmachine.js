@@ -1,6 +1,8 @@
-/**
+/*   vim: set ts=2:
+ *
  * @returns {slotMachine}
  */
+
 $(document).ready( function(){
 	
 	function  slotMachine() {
@@ -20,10 +22,7 @@ $(document).ready( function(){
 		this.build = function(){
 			$.get(ajaxQueryUrl + "?action=reqids", function(famille, textStatus, jqXHR){
 				drawers = famille;
-//				$("head style").append("	.unknownid{ margin-top: 0;}");
 				for(member in drawers){
-//					$("head style").append("	." + drawers[member].id +
-//							' { margin-top: -'+ (896+parseInt(drawers[member].pictureIdx)) + 'px;}');
 					$('<div/>')
 							.addClass('id_frame')
 							.html('<img src=/id_pictures/famille.png style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
