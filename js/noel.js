@@ -1,132 +1,100 @@
-/* @version 1.1 fixedMenu
- * @author Lucas Forchino
- * @webSite: http://www.jqueryload.com
- * jquery top fixed menu
+/*   vim: set ts=2:
+ *
+ * @returns {slotMachine}
  */
-var ajaxQueryUrl = "https://famille.miradou.com/noel_ajax.php";
-$(document).ready( function(){
-	$('.menu > li > a').bind('click',function(){
-		var hideMenu = function(){
-	    	$('.menu li.active').removeClass('active');
-	    	$('body').unbind('click');
-	    	return false;
-		};
-	    if($(this).parent().hasClass('active')){ return true;
-	    }
-    	hideMenu();
-	    $(this).parent().toggleClass('active');
-	    $('body').click( hideMenu );
-	    return(false);
-	});
-	$("#resetpwquery-form").dialog({
-		autoOpen: false,
-		height: 250,
-		width: 350,
-		modal: true,
-		buttons: {
-			"connexion": function() {
-				// call verify/send email ajax query
-				// if ok alert
-				// else msg "no email recorded, contact webmaster" 
-				$.post(ajaxQueryUrl + "?action=sendPwRstMail",{ email: $('#email').val()}, function(data){
-					alert(data);					
-				},'jsonp')
-				.error(function(data1, data2, data3){
-					test=data1;
-				});
-				$("#resetpwquery-form").dialog("close");
-			},
-			"annuler": function() {
-				$( this ).dialog( "close" );
-			}
-		},
-		close: function() {
-//			allFields.val( "" ).removeClass( "ui-state-error" );
-		}
-	});
-	$( "#milogin-form" ).dialog({
-		autoOpen: false,
-		height: 250,
-		width: 350,
-		modal: true,
-		buttons: {
-			"connexion": function() {
-				var url = ajaxQueryUrl + "?action=login";
-				$.post(url,{ email: $('#login_email').val(), password: $('#password').val()}, function(user){
-					if(typeof(user) == "string"){
-						$("p.validateTips").text(user);
-					}else{							
-						miuser=user;
-						$('#milogin-form').dialog( "close" );
-			    		$("#loginmenu").addClass('hidden');
-			    		$("#username").html(user.firstname + "<span class='arrow'></span>");
-			    		$("#loggedmenu").removeClass('hidden');
-					}
-				},'jsonp')
-				.error(function(data1, data2, data3){
-						test=data1;
-					});
-			},
-			"annuler": function() {
-				$( this ).dialog( "close" );
-			}
-		},
-		close: function() {
-//			allFields.val( "" ).removeClass( "ui-state-error" );
-		}
-	});
-	$( "#milogin" ).click(function() {
-    	$('.menu li.active').removeClass('active');
-    	$('body').unbind('click');
-		$( "#milogin-form" ).dialog( "open" );
-		return(false);
-	});
-	$("#resetpwquery").click( function(){
-		$( "#milogin-form" ).dialog( "close" );
-		$('#resetpwquery-form').dialog("open");
-		return false;
-	});
-	$("#logout").click(function(){
-		$.get(ajaxQueryUrl + "?action=logout", function(){
-			$("#loggedmenu").addClass('hidden');
-			$("#loginmenu").removeClass('hidden');
-			currentUser = null;
-		});
-	});
-	$("#gglogin").click(function(){ 
-		menu=this; 
-		return false;
-	});
-	$("#fbLogin").click( myFbLogin );
 
-		function myFbLogin(){
-			this.Fb = 0;
-			FB.login(function(response) {
-				  if(response.status == "connected"){
-					  $.get(ajaxQueryUrl + "?" + "action=login&fbId=" + response.authResponse.userID,
-				    		function(user, textStatus, jqXHR){
-						  	if( user ){
-						  		currentUser = user;
-					    		$("#loginmenu").addClass('hidden');
-					    		$("#username").html(user.firstname + "<span class='arrow'></span>");
-					    		$("#loggedmenu").removeClass('hidden');
-						  	}else{ 
-								FB.api('/me', function(reponse){ 
-							  		alert( reponse.first_name + " n'est pas autorisé à accéder au site");
-							  		FB.logout();
-								});
-						  		}
-					  }, 'jsonp')
-					  .error(function(data1, data2, data3){
-						  alert("http get " + data1 + " - " + data2 + " - " + data3);
-					  });
-				  }else{ alert("Pas d'autorisation de facebook"); }
-			  }, {scope:'email,read_stream,publish_stream,offline_access'});
-		return false;
-		}
-    FB.init({ 
-	    appId:'219799788042522', cookie:true, 
-	    status:true, xfbml:true, oauth: true,
-	    channelURL : 'https://famille.miradou.com/include/fbchannel.php'
-	 });
+$(document).ready( function(){
+	
+	function  slotMachine() {
+		var date = new Date();
+		var txtFile = "Tirage du " + date.toLocaleString() + "\n";
+
+		var gift;
+		var drawers=0;
+		var dialog = $('<div id="message"></div>')
+		.dialog({
+			autoOpen: false,
+			title: 'Texte',
+			width: 480
+		});
+			
+		dialog.html("<ul/>");
+		this.build = function(){
+			$.get(ajaxQueryUrl + "?action=reqids", function(famille, textStatus, jqXHR){
+				drawers = famille;
+				for(member in drawers){
+					$('<div/>')
+							.addClass('id_frame')
+							.html('<img src=/images/fmly_ids.png style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
+							.appendTo("#drawers");
+					$("<div/>")
+							.addClass('id_frame')
+							.html('<img src=/images/fmly_ids.png id="' + drawers[member].id + '_gift" class="unknownid"></img>')
+							.appendTo("#drawn");
+				}
+			}, 'jsonp');
+			$( "#draw, #reset, #opener, #file").button();
+			$( "#drawLastLastYear, #drawLastYear").button();
+			$( "#reset, #opener").hide();
+			$( "#draw" ).click( this.draw );
+			$( "#drawLastLastYear" ).click( this.draw );
+			$( "#drawLastYear" ).click( this.draw );
+			$( "#reset" ).click( this.reset );
+			$( "#opener" ).click( this.text );
+			$( "#file" ).click( this.file );
+		};
+	/**
+	 * @returns {Boolean}
+	 */
+		this.draw= function(){
+			$.get(ajaxQueryUrl + "?action=" + "req" + this.id, 
+				function(data){
+					jQuery.easing.def = "easeOutElastic";
+					gift = eval(data);
+					var drawer=null;
+					for( drawer in drawers){
+						txtFile = txtFile + "\n" + drawers[drawer].firstname + " fait un cadeau à " + drawers[gift[drawer]].firstname;
+						$('#message ul').append( "<li><b>" + drawers[drawer].firstname + "</b> fait un cadeau à <b>" + drawers[gift[drawer]].firstname + "</b></li>");
+						$( "#" + drawers[drawer].id + "_gift").switchClass( 'unknownid', gift[drawer], 8000,'easeOutBounce', function(){});
+					}
+					$(".id_frame > img").promise().done(function(){
+						$( "#reset, #opener" ).button("enable");
+						$( "#reset, #opener, #file" ).show();						
+						$("#draw, #drawLastLastYear, #drawLastYear").hide();
+					});
+				}, 'jsonp');
+			$( "#draw, #drawLastLastYear, #drawLastYear" ).button("disable");
+			return false; 
+		};
+		this.reset = function(){
+			$.get(ajaxQueryUrl + "?action=resetdraw", 
+					function(data){
+			}, 'jsonp');
+			$( "#reset, #opener" ).button("disable");
+			for(member in drawers){
+//				$( "#" + drawers[member].id + "_gift" ).attr('style','background-position: 0 0;');
+				$('.'+member).switchClass(member,'unknownid');
+				$( "#draw, #drawLastLastYear, #drawLastYear" ).button("enable");
+			}
+			$(".id_frame > img").promise().done(function(){
+				$( "#reset, #opener, #file" ).hide();
+				$( "#draw, #drawLastLastYear, #drawLastYear" ).show();
+					dialog.html('<ul></ul>');
+			});
+			return(false);
+		};
+		this.text = function(){
+			dialog.dialog('open');
+			return false;
+		};
+		this.file = function(){
+		    var downloadLink = document.createElement("a");
+		    downloadLink.href = 'data:text/rtf;charset=utf-8,' + escape(txtFile);
+		    downloadLink.download = "Resultat du tirage du " + date.toLocaleString() + ".txt";
+		    downloadLink.click();
+//		    document.body.removeChild(downloadLink);
+		};
+	}
+	var mySlot = new slotMachine;
+	mySlot.build();
 });

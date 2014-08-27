@@ -1,5 +1,9 @@
 <?php
 function htmlHeader($title){
+	session_start();
+	$GLOBALS['currentUser'] = new MiradouAuth(new FamilyRealm());
+	$css_file = "css".str_replace(".php", ".css", $_SERVER['PHP_SELF']);
+	$js_file = "js".str_replace(".php", ".js", $_SERVER['PHP_SELF']);
 ?>
 <!DOCTYPE html>
 <html>
@@ -8,26 +12,28 @@ function htmlHeader($title){
 <meta name="Author" content="fvuillemin">
 <link
 	rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8.13.custom.css" />
-<link
-	rel="stylesheet" type="text/css" href="/css/fonts.css" />
-<link
-	rel="stylesheet" type="text/css" href="/css/noel.css" />
+<link rel="stylesheet" type="text/css" href="/css/fonts.css" />
+<link rel="stylesheet" type="text/css" href="/css/fmly.css" />
+	<?php if (file_exists($css_file)) { ?>
+<link rel="stylesheet" type="text/css" href="<?=$css_file?>" />
+	<?php } ?>	
 <script
 	type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
 <script
 	type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-<script type="text/javascript"
-	src="/js/noel.js"></script>
+<script type="text/javascript" src="/js/fmly.js"></script>
 <script type="text/javascript">
 <!--
 currentUser = eval(<?php echo json_encode($GLOBALS['currentUser']); ?>);
 //-->
 </script>
+	<?php if (file_exists($js_file)) { ?>
+<script type="text/javascript" src="<?=$js_file?>"></script>
+	<?php } ?>	
 <style>
 </style>
-<script type="text/javascript" src="js/slotmachine.js"></script>
 <title><?=$title?></title>
 </head>
 
@@ -99,11 +105,6 @@ function pageFooter(){
 <footer>
 	<div id="bottomleft"></div>
 	<div id="bottom" style="text-align: center;">
-		<a rel="license"
-			href="https://creativecommons.org/licenses/by-sa/2.0/fr/"><img
-			alt="Contrat Creative Commons"
-			style="display: none; height: 20px; border-width: 0"
-			src="https://i.creativecommons.org/l/by-sa/2.0/fr/88x31.png" /> </a>
 			Les contenus de cette page sont publiés suivant les conditions de la <a
 			rel="license"
 			href="https://creativecommons.org/licenses/by-sa/2.0/fr/">Licence
