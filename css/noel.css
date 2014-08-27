@@ -55,7 +55,7 @@ h1, h3 {
 header {
 	height: 30px;
 	margin-top: 7px;
-	background-image: url(back.gif);
+	background-image: url(images/back.gif);
 	border: 2px  solid silver;
 	border-radius: 8px 8px 0px 0px;
 	border-bottom: 0;
@@ -63,8 +63,8 @@ header {
 #spacer1 {
 	height: 30px;
 	border-width: 0 2px;
-	-webkit-border-image: url(border.png) 2 2 2 2 stretch;
-	-moz-border-image: url(border.png) 2 2 2 2 stretch; 
+	-webkit-border-image: url(images/border.png) 2 2 2 2 stretch;
+	-moz-border-image: url(images/border.png) 2 2 2 2 stretch; 
 }
 #headerright, #headerleft{
 	width: 7px;
@@ -73,12 +73,12 @@ header {
 }
 #headerright{
 	right: 0;
-	background-image: url(../images/topright.png);
+	background-image: url(images/fmly-topright.png);
 	background-position-x: -13px;
 }
 #headerleft{
 	left: 0;
-	background-image: url(../images/topleft.png);
+	background-image: url(images/fmly-topleft.png);
 } 
 #headercenter{
 	position: absolute;
@@ -94,14 +94,14 @@ header {
 	position: absolute;
 	height: 60px;
 	width: 20px;
-	background-image: url(../images/bottomleft.png);
+	background-image: url(images/fmly-bottomleft.png);
 } 	
 #bottomright{
 	position: absolute;
 	right: 0px;
 	width: 20px;
 	height:	60px;
-	background-image: url(../images/bottomright.png);
+	background-image: url(images/fmly-bottomright.png);
 }
 dl.giftlist{
 	text-align: center;
@@ -139,7 +139,7 @@ dl.giftlist span.id_frame{
 footer{
 	width: 100%;
 	height: 60px;
-	background-image: url(../images/bottom.png);
+	background-image: url(images/fmly-bottom.png);
 	background-repeat: repeat-x;
 }
 #bottom{
