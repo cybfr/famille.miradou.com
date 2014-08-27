@@ -22,12 +22,12 @@ h1, h3 {
 	color: #db5c98;
 	margin: 0;
 }
-#slotmachine {
+#mainFrame {
 	border: 2px solid silver; border-radius: 6px;
 	background-color: #eee;
 	margin: 0 1ex;
 	}
-.slotmachineheader {
+.mainFrameHeader {
 	text-align: center;
 	color: #aaa;
 	background-color: #e0e0e0;
@@ -38,7 +38,7 @@ h1, h3 {
 	background-image: -ms-linear-gradient(bottom, #EEEEEE 0%, #EEEEEE 25%, #D9D6D9 100%);
 	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#D9D9D9', endColorstr='#EEEEEE');
 }
-.slotmachinefooter{
+.mainFrameFooter{
 	padding: 4px;
 	text-align: center;
 	min-height: 2em;
@@ -49,7 +49,7 @@ h1, h3 {
 	background-image: -ms-linear-gradient(bottom, #D9D9D9 0%, #D9D9D9 25%, #EEEEEE 100%);
 	filter : progid:DXImageTransform.Microsoft.gradient(startColorstr='#EEEEEE', endColorstr='#D9D9D9');
 }
-.slotmachinetitle {
+.mainFrameTitle {
 	font-family: NotethisRegular; 	
 }
 header {
@@ -60,7 +60,7 @@ header {
 	border-radius: 8px 8px 0px 0px;
 	border-bottom: 0;
 }
-#header2 {
+#spacer1 {
 	height: 30px;
 	border-width: 0 2px;
 	-webkit-border-image: url(border.png) 2 2 2 2 stretch;
@@ -315,4 +315,10 @@ li.lastmenu > ul {
 }
 #topmenu {
 	      display: block;
+}
+.long_text{
+	width: 70ex;
+	color: gray;
+	margin: 0 auto;
+	text-align: justify;
 }

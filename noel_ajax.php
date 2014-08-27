@@ -37,8 +37,8 @@ switch ($_REQUEST['action']){
 	case 'resetpw' 		: exit(myAjaxFmt($currentUser->resetPassword($_REQUEST['password'],$_REQUEST['key'])));
 	case 'userdraw'		: exit(myAjaxFmt($my->getUserGiftDraw()));
 	case 'reqdraw' 		: exit(myAjaxFmt($my->getValidGiftDraw()));
-	case 'reqdraw2011' 	: exit(myAjaxFmt($my->getdbGiftDraw("2011",'2c8lloigsh3bqe1p6726t55k71')));
-	case 'reqdraw2012' 	: exit(myAjaxFmt($my->getdbGiftDraw("2012",'6h8e8j7ajisck7vnvo6vkgti56')));
+	case 'reqdrawLastLastYear' 	: exit(myAjaxFmt($my->getdbGiftDraw("2011",'2c8lloigsh3bqe1p6726t55k71')));
+	case 'reqdrawLastYear' 	: exit(myAjaxFmt($my->getdbGiftDraw("2012",'6h8e8j7ajisck7vnvo6vkgti56')));
 	case 'resetdraw' 	: exit(myAjaxFmt($my->resetGiftDraw()));
 	case 'reqids' 		: exit(myAjaxFmt($my->getMembers()));
 	case 'reqmember' :

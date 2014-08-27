@@ -34,11 +34,11 @@ $(document).ready( function(){
 				}
 			}, 'jsonp');
 			$( "#draw, #reset, #opener, #file").button();
-			$( "#draw2011, #draw2012").button();
+			$( "#drawLastLastYear, #drawLastYear").button();
 			$( "#reset, #opener").hide();
 			$( "#draw" ).click( this.draw );
-			$( "#draw2011" ).click( this.draw );
-			$( "#draw2012" ).click( this.draw );
+			$( "#drawLastLastYear" ).click( this.draw );
+			$( "#drawLastYear" ).click( this.draw );
 			$( "#reset" ).click( this.reset );
 			$( "#opener" ).click( this.text );
 			$( "#file" ).click( this.file );
@@ -60,10 +60,10 @@ $(document).ready( function(){
 					$(".id_frame > img").promise().done(function(){
 						$( "#reset, #opener" ).button("enable");
 						$( "#reset, #opener, #file" ).show();						
-						$("#draw, #draw2011, #draw2012").hide();
+						$("#draw, #drawLastLastYear, #drawLastYear").hide();
 					});
 				}, 'jsonp');
-			$( "#draw, #draw2011, #draw2012" ).button("disable");
+			$( "#draw, #drawLastLastYear, #drawLastYear" ).button("disable");
 			return false; 
 		};
 		this.reset = function(){
@@ -74,11 +74,11 @@ $(document).ready( function(){
 			for(member in drawers){
 //				$( "#" + drawers[member].id + "_gift" ).attr('style','background-position: 0 0;');
 				$('.'+member).switchClass(member,'unknownid');
-				$( "#draw, #draw2011, #draw2012" ).button("enable");
+				$( "#draw, #drawLastLastYear, #drawLastYear" ).button("enable");
 			}
 			$(".id_frame > img").promise().done(function(){
 				$( "#reset, #opener, #file" ).hide();
-				$( "#draw, #draw2011, #draw2012" ).show();
+				$( "#draw, #drawLastLastYear, #drawLastYear" ).show();
 					dialog.html('<ul></ul>');
 			});
 			return(false);

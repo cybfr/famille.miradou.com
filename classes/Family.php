@@ -148,8 +148,8 @@ class Family  extends BaseFamily {
 		//		$result = $this->getdbGiftDraw();
 		if( $result === NULL){
 			while(! $drawing ) $drawing = $this->getGiftDraw();
-			if( $this->currentUser->id == "janic" or $this->currentUser->id == "francoisregis" )
-				  $this->storeGiftDraw($drawing);
+//			if( $this->currentUser->id == "janic" or $this->currentUser->id == "francoisregis" )
+//				  $this->storeGiftDraw($drawing);
 			return($drawing);
 		}else{
 			return($result);
@@ -198,7 +198,7 @@ class Family  extends BaseFamily {
 		if(!isset($user)) $user = session_id();
 		$query ="SELECT `tireur`, `tire`, `order`
 		FROM  `famille`.`tirages`, `famille`.`membres`
-		WHERE  `annee` = $year && `user` = '".$user."' && `membres`.`id` = `tirages`.`tireur`
+		WHERE  `annee` = $year && `membres`.`id` = `tirages`.`tireur`
 				ORDER by `order` asc";
 		$result = mysql_query($query, $this->link);
 		if($result === NULL ){

@@ -1,25 +1,12 @@
-<?php include("skeleton.php"); ?>
-<!DOCTYPE html >
-<html lang="fr">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<?php html_head(""); ?>
-<style>
-.long_text{
-	width: 60ex;
-	color: gray;
-	margin: 0 auto;
-	text-align: justify;
-}
-#slotmachine {
-	margin: 0 auto;
-	width: 70ex;
-}
-</style>
-<title>L'Homme qui plantait des arbres</title>
-</head>
-<body>
-<?php page_header("Jean Giono</h1><h3>L'Homme qui plantait des arbres</h3><h4>1953</h4><h1>"); ?>
+<?php
+include("skeleton.php"); 
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.php';
+});
+htmlHeader("Giono");
+pageHeader();
+mainFrameHeader("Jean Giono</h1><h3>L'Homme qui plantait des arbres</h3><h4>1953</h4><h1>");
+?>
 <div class="long_text">
 <p><i>Voir au <a href="#Droits_d.27auteur" title="L’homme qui plantait des arbres">bas de la page</a> pour ce qui concerne le copyright.</i></p>
 <p>Pour que le caractère d'un être humain dévoile des qualités vraiment
@@ -401,83 +388,85 @@ reproductions. Un américain est venu me voir dernièrement pour me
 demander l'autorisation de faire tirer ce texte à 100 000 exemplaires
 pour les répandre gratuitement en Amérique (ce que j'ai bien entendu
 accepté). L'Université de Zagreb en fait une traduction en yougoslave.
-C'est un de mes textes dont je suis le plus fier. Il ne me rapporte pas
+		C'est un de mes textes dont je suis le plus fier. Il ne me rapporte pas
 un centime et c'est pourquoi il accomplit ce pour quoi il a été écrit.</i></dd>
-</dl>
-<dl>
-<dd><i>J'aimerais vous rencontrer, s'il vous est possible, pour parler
-précisément de l'utilisation pratique de ce texte. Je crois qu'il est
-temps qu'on fasse une «&nbsp;politique de l'arbre&nbsp;» bien que le
-mot politique semble bien mal adapté.</i></dd>
-</dl>
-<dl>
-<dd><i>Très cordialement.</i>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>
-<dl>
-<dd>Jean Giono</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</dd>
-</dl>
-</div>
-<?php page_footer(""); ?>
-</body>
-</html>
+		</dl>
+		<dl>
+		<dd><i>J'aimerais vous rencontrer, s'il vous est possible, pour parler
+		précisément de l'utilisation pratique de ce texte. Je crois qu'il est
+		temps qu'on fasse une «&nbsp;politique de l'arbre&nbsp;» bien que le
+		mot politique semble bien mal adapté.</i></dd>
+		</dl>
+		<dl>
+		<dd><i>Très cordialement.</i>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>
+		<dl>
+		<dd>Jean Giono</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</dd>
+		</dl>
+		</div>
+<?php 
+mainFrameFooter('');
+pageFooter();
+htmlFooter();
+?>

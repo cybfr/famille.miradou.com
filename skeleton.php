@@ -1,21 +1,11 @@
-<?php if(0){ ?>
-<!DOCTYPE html>
 <?php
-}
-if(!defined('SKELETON')) define('SKELETON', TRUE);
-// require 'noel_class.php';
-// require("MiradouAuth.php");
-// require("FamilyRealm.php");
-function my_autoloader($class) {
-	include 'classes/' . $class . '.php';
-}
-spl_autoload_register('my_autoloader');
-
-session_start();
-$currentUser = new MiradouAuth(new FamilyRealm());
-if (SKELETON){
-	function html_head($l){
+function htmlHeader($title){
 ?>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="Author" content="fvuillemin">
 <link
 	rel="stylesheet" type="text/css" href="/css/jquery-ui-1.8.13.custom.css" />
 <link
@@ -38,10 +28,15 @@ currentUser = eval(<?php echo json_encode($GLOBALS['currentUser']); ?>);
 </script>
 <style>
 </style>
+<script type="text/javascript" src="js/slotmachine.js"></script>
+<title><?=$title?></title>
+</head>
+
 <?php
 	}
-	function page_header($titre){
+function pageHeader(){
 ?>
+<body>
 <header>
 	<div id="headercenter">
 		<div
@@ -71,29 +66,37 @@ currentUser = eval(<?php echo json_encode($GLOBALS['currentUser']); ?>);
 				<li><a href="#" id="logout">déconnexion</a></li>
 			</ul>
 		</li>
-		<li><a href="#">about</a>
+		<li><a href="#">à propos</a>
 			<ul class="subnav">
 				<li><a href="#">about</a></li>
-				<li><a href="#">about</a></li>
+				<li><a href="license.php">License</a></li>
 			</ul>
 		</li>
 	</ul>
 </header>
-<div id="header2"></div>
-<div id="slotmachine">
-	<div class="slotmachineheader">
-		<h1 class="slotmachinetitle">
+<div id="spacer1"></div>
+	<?php 	}
+function mainFrameHeader($titre){
+?>
+<div id="mainFrame">
+	<div class="mainFrameHeader">
+		<h1 class="mainFrameTitle">
 			<?php echo $titre?>
 		</h1>
 	</div>
-	<?php 	}
-	function page_footer($footerhtml){
+<?php
+}
+function mainFrameFooter($footer){
 ?>
-	<div class="slotmachinefooter">
-		<?php echo $footerhtml; ?>
+<div class="mainFrameFooter">
+		<?php echo $footer; ?>
 	</div>
 </div>
-<!-- End SLOTMACHINE -->
+<!-- End mainFrame -->
+<?php
+}
+function pageFooter(){
+?>
 <footer>
 	<div id="bottomleft"></div>
 	<div id="bottom" style="text-align: center;">
@@ -102,10 +105,11 @@ currentUser = eval(<?php echo json_encode($GLOBALS['currentUser']); ?>);
 			alt="Contrat Creative Commons"
 			style="display: none; height: 20px; border-width: 0"
 			src="https://i.creativecommons.org/l/by-sa/2.0/fr/88x31.png" /> </a>
-		Cette page peut être utilisée suivant les conditions de la<br> <a
+			Les contenus de cette page sont publiés suivant les conditions de la <a
 			rel="license"
 			href="https://creativecommons.org/licenses/by-sa/2.0/fr/">Licence
-			Creative Commons Paternité - Partage à l&#39;Identique 2.0 France</a>.
+			Creative Commons Paternité - Partage à l&#39;Identique 2.0 France</a>.<br>
+			Le code source est sous <a href="http://www.gnu.org/licenses/gpl.html">GPLV3</a> et est disponible <a href="https://github.com/cybfr/famille.miradou.com">ici</a>.
 	</div>
 	<div id="bottomright"></div>
 </footer>
@@ -149,14 +153,13 @@ currentUser = eval(<?php echo json_encode($GLOBALS['currentUser']); ?>);
 <div
 	id="log"
 	style="display: none; border: 1px solid black; background-color: #ddd;"></div>
+</body>
+	
 <?php
 	}
-}else{
-	function html_head(){
-}
-function page_header(){
-}
-function page_footer(){
-}
+function htmlFooter(){
+?>
+</html>
+<?php
 }
 ?>
