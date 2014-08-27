@@ -1,10 +1,13 @@
-<?php include("skeleton.php"); ?>
-<!DOCTYPE html >
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="Author" content="fvuillemin">
-<?php html_head(""); ?>
+<?php
+include("skeleton.php");
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.php';
+});
+	session_start();
+	$currentUser = new MiradouAuth(new FamilyRealm());
+	
+htmlHeader("Stats");
+?>
 <style type="text/css">
 table.stat {
 	border-collapse: collapse;
@@ -24,10 +27,12 @@ table.stat {
 .stat tr { border-width: 0 2px; border-style: solid; border-color: gray; }
 .stat td, th { border-width: 0px 1px; border-style: solid; border-color: gray; }
 </style>
-<title>statistiques</title>
 </head>
 <body>
-<?php page_header("Tirage au sort 2011"); ?>
+<?php
+pageHeader();
+mainFrameHeader("Tirage au sort 2011");
+?>
 	<div id="effect">
 	</div>
 	<script type="text/javascript">
@@ -41,9 +46,10 @@ table.stat {
 		$('#effect').html('<img alt="loading" src="/images/ajax-loader.gif"></img>');
 	});
 	</script>
-<?php page_footer('<a href="#" id="draw">Démonstration</a>
+<?php 
+mainFrameFooter('<a href="#" id="draw">Démonstration</a>
 		<a href="#" id="reset">Remettre à zéro</a>
-		<a href="#" id="opener">Texte</a>'); ?>
-	</body>
-</html>
-
+		<a href="#" id="opener">Texte</a>');
+pageFooter();
+htmlFooter();
+?>
