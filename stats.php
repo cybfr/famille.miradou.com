@@ -4,7 +4,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="Author" content="fvuillemin">
-<!-- noel.php created on 23 sept. 2011 14:47:00 CEST -->
 <?php html_head(""); ?>
 <style type="text/css">
 table.stat {

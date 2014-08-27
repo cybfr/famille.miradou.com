@@ -6,20 +6,13 @@ $message[406]= "Toutes les réponses possibles seront refusées.";
 $message[407]= "Accès à la ressource autorisé par identification avec le proxy.";
 $message[500]= 'Erreur interne';
 
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.php';
+});
+htmlHeader($_REQUEST['error']);
+pageHeader();
+mainFrameHeader($message[$_REQUEST['error']]);
+mainFrameFooter('');
+pageFooter();
+htmlFooter();
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="Author" content="fvuillemin">
-<?php html_head(""); ?>
-<title>Error <?php echo  $_REQUEST['error']; ?></title>
-</head>
-<body>
-	<?php page_header($message[$_REQUEST['error']]); ?>
-	<div id="effect">
-	</div>
-	<?php page_footer(''); ?>
-
-</body>
-</html>

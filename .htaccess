@@ -1,13 +1,13 @@
 <limit GET POST>
 </limit>
 Options -Indexes
-ErrorDocument 400 /errors/error.php?error=400
-ErrorDocument 401 /errors/error.php?error=401
-ErrorDocument 403 /errors/error.php?error=403
-ErrorDocument 404 /errors/error.php?error=404
-ErrorDocument 405 /errors/error.php?error=405
-ErrorDocument 408 /errors/error.php?error=408
-ErrorDocument 409 /errors/error.php?error=409
-ErrorDocument 410 /errors/error.php?error=410
-ErrorDocument 500 /errors/error.php?error=500
+ErrorDocument 400 /include/error.php?error=400
+ErrorDocument 401 /include/error.php?error=401
+ErrorDocument 403 /include/error.php?error=403
+ErrorDocument 404 /include/error.php?error=404
+ErrorDocument 405 /include/error.php?error=405
+ErrorDocument 408 /include/error.php?error=408
+ErrorDocument 409 /include/error.php?error=409
+ErrorDocument 410 /include/error.php?error=410
+ErrorDocument 500 /include/error.php?error=500
 php_value include_path ".:/usr/local/lib/php:/var/www/famille.miradou.com/"

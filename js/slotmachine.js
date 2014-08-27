@@ -25,11 +25,11 @@ $(document).ready( function(){
 				for(member in drawers){
 					$('<div/>')
 							.addClass('id_frame')
-							.html('<img src=/id_pictures/famille.png style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
+							.html('<img src=/images/fmly_ids.png style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
 							.appendTo("#drawers");
 					$("<div/>")
 							.addClass('id_frame')
-							.html('<img src=/id_pictures/famille.png id="' + drawers[member].id + '_gift" class="unknownid"></img>')
+							.html('<img src=/images/fmly_ids.png id="' + drawers[member].id + '_gift" class="unknownid"></img>')
 							.appendTo("#drawn");
 				}
 			}, 'jsonp');

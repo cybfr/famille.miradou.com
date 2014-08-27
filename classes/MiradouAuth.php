@@ -26,10 +26,10 @@ class MiradouAuth{
 		return($user);
 	}
 	function getIdStyles(){
-		$style =" 	.unknownid{	background-position: 0 -10px; background-image: url(../id_pictures/famille.png);}
+		$style =" 	.unknownid{	background-position: 0 -10px; background-image: url(/images/fmly_ids.png);}
 				";
 		foreach ($this->AuthRealm->members as $member){
-			$style .= "	.".$member->id."{	background-position: 0 -".$member->pictureIdx."px; background-image: url(../id_pictures/famille.png);}
+			$style .= "	.".$member->id."{	background-position: 0 -".$member->pictureIdx."px; background-image: url(/images/fmly_ids.png);}
 					";
 		}
 		return($style);

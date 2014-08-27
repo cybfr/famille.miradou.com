@@ -127,6 +127,6 @@ $(document).ready( function(){
     FB.init({ 
 	    appId:'219799788042522', cookie:true, 
 	    status:true, xfbml:true, oauth: true,
-	    channelURL : 'https://famille.miradou.com/fbchannel.php'
+	    channelURL : 'https://famille.miradou.com/include/fbchannel.php'
 	 });
 });
