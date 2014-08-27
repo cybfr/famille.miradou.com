@@ -1,4 +1,7 @@
 <?php
+spl_autoload_register(function ($class) {
+	include 'classes/' . $class . '.php';
+});
 function htmlHeader($title){
 	session_start();
 	$GLOBALS['currentUser'] = new MiradouAuth(new FamilyRealm());

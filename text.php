@@ -1,13 +1,12 @@
 <?php
 include("skeleton.php"); 
-spl_autoload_register(function ($class) {
-	include 'classes/' . $class . '.php';
-});
 htmlHeader("Giono");
 pageHeader();
-mainFrameHeader("Jean Giono</h1><h3>L'Homme qui plantait des arbres</h3><h4>1953</h4><h1>");
+mainFrameHeader("L'Homme qui plantait des arbres");
 ?>
 <div class="long_text">
+<h3>Jean Giono</h3>
+<h4>1953</h4>
 <p><i>Voir au <a href="#Droits_d.27auteur" title="L’homme qui plantait des arbres">bas de la page</a> pour ce qui concerne le copyright.</i></p>
 <p>Pour que le caractère d'un être humain dévoile des qualités vraiment
 exceptionnelles, il faut avoir la bonne fortune de pouvoir observer son
@@ -372,11 +371,8 @@ paysage et le régime des eaux.</p>
 <p>Voici d'ailleurs le texte de la lettre que Giono écrivit au
 Conservateur des Eaux et Forêts de Digne, Monsieur Valdeyron, en 1957,
 au sujet de cette nouvelle&nbsp;:</p>
-<dl>
-<dd><i>Cher Monsieur,</i></dd>
-</dl>
-<dl>
-<dd><i>Navré de vous décevoir, mais Elzéard Bouffier est un personnage
+<p><i>Cher Monsieur,</i></p>
+<p><i>Navré de vous décevoir, mais Elzéard Bouffier est un personnage
 inventé. Le but était de faire aimer l'arbre ou plus exactement faire
 aimer à planter des arbres (ce qui est depuis toujours une de mes idées
 les plus chères). Or si j'en juge par le résultat, le but a été atteint
@@ -389,81 +385,15 @@ demander l'autorisation de faire tirer ce texte à 100 000 exemplaires
 pour les répandre gratuitement en Amérique (ce que j'ai bien entendu
 accepté). L'Université de Zagreb en fait une traduction en yougoslave.
 		C'est un de mes textes dont je suis le plus fier. Il ne me rapporte pas
-un centime et c'est pourquoi il accomplit ce pour quoi il a été écrit.</i></dd>
-		</dl>
-		<dl>
-		<dd><i>J'aimerais vous rencontrer, s'il vous est possible, pour parler
+un centime et c'est pourquoi il accomplit ce pour quoi il a été écrit.</i></p>
+<p><i>J'aimerais vous rencontrer, s'il vous est possible, pour parler
 		précisément de l'utilisation pratique de ce texte. Je crois qu'il est
 		temps qu'on fasse une «&nbsp;politique de l'arbre&nbsp;» bien que le
-		mot politique semble bien mal adapté.</i></dd>
-		</dl>
-		<dl>
-		<dd><i>Très cordialement.</i>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>
-		<dl>
-		<dd>Jean Giono</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
-		</dd>
-		</dl>
+		mot politique semble bien mal adapté.</i></p>
+
+		<p><i>Très cordialement.</i></p>
+	
+		<p>Jean Giono</p>
 		</div>
 <?php 
 mainFrameFooter('');

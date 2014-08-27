@@ -1,8 +1,5 @@
 <?php 
 include("skeleton.php");
-spl_autoload_register(function ($class) {
-	include 'classes/' . $class . '.php';
-});
 // <!-- noel.php created on 23 sept. 2011 14:47:00 CEST -->
  
 $year = date("Y");

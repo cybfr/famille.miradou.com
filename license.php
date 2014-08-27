@@ -1,8 +1,5 @@
 <?php 
-include("skeleton.php"); 
-spl_autoload_register(function ($class) {
-	include 'classes/' . $class . '.php';
-});
+include("skeleton.php");
 htmlHeader("License");
 pageHeader();
 mainFrameHeader('License');
