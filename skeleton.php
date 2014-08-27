@@ -18,7 +18,6 @@ function htmlHeader($title){
 <script
 	type="text/javascript"
 	src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.23/jquery-ui.min.js"></script>
-<!-- <script type="text/javascript" src="https://famille.miradou.com/js/jquery.backgroundPosition.js"></script> -->
 <script type="text/javascript"
 	src="/js/noel.js"></script>
 <script type="text/javascript">
