@@ -1,10 +1,14 @@
 <?php
-class GiftIdeas extends member{
+class GiftIdeas extends Member{
 	public $ideas=array();
 	function __construct($member){
 		foreach ($member as $attribute=>$value){
 			$this->$attribute = $value;
 		}
+		include 'include/mysqlsecrets.php';
+		$this->link = mysql_connect($server,$username,$password)
+		or die("Impossible de se connecter : " . mysql_error());
+		mysql_query("SET NAMES 'utf8'");
 		$query = "SELECT *
 		FROM  `famille`.`giftideas`
 		WHERE  `memberid` LIKE  '$member->id'";

@@ -5,11 +5,19 @@
  */
 var ajaxQueryUrl = "https://famille.miradou.com/noel_ajax.php";
 $(document).ready( function(){
+	var loadMainContent = function(page){
+		$.get("https://famille.miradou.com/ajax"+page+".php", function(data){
+			$('#mainFrameContent').html(data);
+		});
+		$('.mainFrameFooter').html('');
+		$('.mainFrameTitle').html('En attente des résulats');
+		$('#mainFrameContent').html('<img alt="loading" src="/images/ajax-loader.gif"></img>');
+	};
 	$('.menu > li > a').bind('click',function(){
 		var hideMenu = function(){
 	    	$('.menu li.active').removeClass('active');
 	    	$('body').unbind('click');
-	    	return false;
+//	    	return false;
 		};
 	    if($(this).parent().hasClass('active')){ return true;
 	    }
@@ -93,11 +101,27 @@ $(document).ready( function(){
 			currentUser = null;
 		});
 	});
+	$("#license").click(function(){
+    	$('.menu li.active').removeClass('active');
+    	loadMainContent("License");
+	});
+	$( "#navmenu li a" ).each(function( index ) {
+		  var filename = this.id.substr(0,1).toUpperCase()+
+					 this.id.substr(1).toLowerCase();
+		  $( "#"+this.id ).click(function(){
+		    	$('.menu li.active').removeClass('active');
+		    	loadMainContent( filename);
+		  });
+		  
+	});
+
 	$("#gglogin").click(function(){ 
-		menu=this; 
+    	$('.menu li.active').removeClass('active');
+//		menu=this; 
 		return false;
 	});
 	$("#fbLogin").click( myFbLogin );
+	$('.menu li.active').removeClass('active');
 
 		function myFbLogin(){
 			this.Fb = 0;

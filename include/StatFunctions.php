@@ -102,7 +102,7 @@ function draw_stat($my){
 	if(isset($_REQUEST['count'])){
 		$count = $_REQUEST['count'];
 	}else{
-		$count = 140;
+		$count = 2000;
 	}
 	for($i=0; $i<$count; $i++){
 		$gift = $my->getGiftDraw();

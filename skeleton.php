@@ -57,7 +57,7 @@ function pageHeader(){
 	<ul class="topnav menu">
 		<li id="loginmenu"
 			class="lastmenu <?php if ('visitor' != $GLOBALS['currentUser']->id) echo "hidden" ?>">
-			<a href="#">connexion<span class="arrow"></span>
+			<a href="#">Connexion<span class="arrow"></span>
 		</a>
 			<ul class="subnav">
 				<li><a href="#" id="fbLogin">avec facebook</a></li>
@@ -67,17 +67,23 @@ function pageHeader(){
 		</li>
 		<li id="loggedmenu"
 			class="lastmenu <?php if('visitor' == $GLOBALS['currentUser']->id) echo "hidden" ?>">
-			<a href="#" id="username"><?php echo $GLOBALS['currentUser']->firstname; ?><span
-				class="arrow"></span> </a>
+			<a href="#" id="username"><?php echo $GLOBALS['currentUser']->firstname; ?><span class="arrow"></span></a>
 			<ul class="subnav">
 				<li><a href="#">administration</a></li>
 				<li><a href="#" id="logout">déconnexion</a></li>
 			</ul>
 		</li>
-		<li><a href="#">à propos</a>
+		<li><a href="#">À propos<span class="arrow"></span></a>
 			<ul class="subnav">
 				<li><a href="#">about</a></li>
-				<li><a href="license.php">License</a></li>
+				<li><a href="#License" id="license">License</a></li>
+			</ul>
+		</li>
+		<li id="navmenu"><a href="#">Navigation<span class="arrow"></span></a>
+			<ul class="subnav">
+				<li><a href="#Index" id="index">Accueil</a></li>
+				<li><a href="#Noel" id="noel">Tirage au sort</a></li>
+				<li><a href="#Stat" id="stat">Tests statistiques</a></li>
 			</ul>
 		</li>
 	</ul>
