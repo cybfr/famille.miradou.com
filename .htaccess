@@ -11,3 +11,7 @@ ErrorDocument 409 /index.php?page=Error&error=409
 ErrorDocument 410 /index.php?page=Error&error=410
 ErrorDocument 500 /index.php?page=Error&error=500
 php_value include_path ".:/usr/share/php:/usr/local/lib/php:/var/www/famille.miradou.com/"
+
+
+RewriteEngine On
+RewriteRule ^([A-Z][a-z]+)$ /index.php?page=$1 [QSA]

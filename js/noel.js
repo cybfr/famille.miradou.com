@@ -2,9 +2,10 @@
  *
  * @returns {slotMachine}
  */
+var ajaxQueryUrl = "https://famille.miradou.com/noel_ajax.php";
 
 $(document).ready( function(){
-	
+	console.log("noel.js");
 	function  slotMachine() {
 		var date = new Date();
 		var txtFile = "Tirage du " + date.toLocaleString() + "\n";
@@ -25,11 +26,11 @@ $(document).ready( function(){
 				for(member in drawers){
 					$('<div/>')
 							.addClass('id_frame')
-							.html('<img src=/images/fmly_ids.png style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
+							.html('<img src=/images/fmly_ids.png alt="'+member+'"style="margin-top: -' + (896-896+parseInt(drawers[member].pictureIdx)) + 'px"></img>')
 							.appendTo("#drawers");
 					$("<div/>")
 							.addClass('id_frame')
-							.html('<img src=/images/fmly_ids.png id="' + drawers[member].id + '_gift" class="unknownid"></img>')
+							.html('<img src=/images/fmly_ids.png alt="unknown" id="' + drawers[member].id + '_gift" class="unknownid"></img>')
 							.appendTo("#drawn");
 				}
 			}, 'jsonp');
@@ -41,7 +42,9 @@ $(document).ready( function(){
 			$( "#drawLastYear" ).click( this.draw );
 			$( "#reset" ).click( this.reset );
 			$( "#opener" ).click( this.text );
-			$( "#file" ).click( this.file );
+			$( "#file" ).on('click', function(event) {
+				mySlot.file(); 
+			});
 		};
 	/**
 	 * @returns {Boolean}
@@ -53,9 +56,11 @@ $(document).ready( function(){
 					gift = eval(data);
 					var drawer=null;
 					for( drawer in drawers){
-						txtFile = txtFile + "\n" + drawers[drawer].firstname + " fait un cadeau à " + drawers[gift[drawer]].firstname;
-						$('#message ul').append( "<li><b>" + drawers[drawer].firstname + "</b> fait un cadeau à <b>" + drawers[gift[drawer]].firstname + "</b></li>");
-						$( "#" + drawers[drawer].id + "_gift").switchClass( 'unknownid', gift[drawer], 8000,'easeOutBounce', function(){});
+						if(typeof gift[drawer] != 'undefined'){
+							txtFile = txtFile + "\n" + drawers[drawer].firstname + " fait un cadeau à " + drawers[gift[drawer]].firstname;
+							$('#message ul').append( "<li><b>" + drawers[drawer].firstname + "</b> fait un cadeau à <b>" + drawers[gift[drawer]].firstname + "</b></li>");
+							$( "#" + drawers[drawer].id + "_gift").switchClass( 'unknownid', gift[drawer], 8000,'easeOutBounce', function(){});
+						}
 					}
 					$(".id_frame > img").promise().done(function(){
 						$( "#reset, #opener" ).button("enable");
@@ -89,9 +94,14 @@ $(document).ready( function(){
 		};
 		this.file = function(){
 		    var downloadLink = document.createElement("a");
-		    downloadLink.href = 'data:text/rtf;charset=utf-8,' + escape(txtFile);
+		    downloadLink.href = 'data:text/rtf;charset=utf-8,' + encodeURIComponent(txtFile);
 		    downloadLink.download = "Resultat du tirage du " + date.toLocaleString() + ".txt";
+		    var t=document.createTextNode("Resultat du tirage du " + date.toLocaleString() + ".txt");
+		    downloadLink.appendChild(t);
+		    document.body.appendChild(downloadLink);
+		    
 		    downloadLink.click();
+		    return false;
 //		    document.body.removeChild(downloadLink);
 		};
 	}
