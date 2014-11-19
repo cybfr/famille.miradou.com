@@ -168,13 +168,11 @@ foreach ( $members as $member ) {
 <?php } ?>
 </li>
 <?php
-	
-}
+	}
 	?>
 <?php
 
-	
-if ($giftUserFirstname == $member->firstname) {
+	if ($giftUserFirstname == $member->firstname) {
 		?>
     <li id="ideaform"><textarea id=newgiftidea class="ui-widget"
 						placeholder="Nouvelle idée ?"></textarea>

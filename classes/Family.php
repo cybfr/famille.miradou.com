@@ -222,8 +222,9 @@ class Family extends BaseFamily {
 	}
 	/**
 	 * Enter description here .
+	 *
 	 * ..
-	 * 
+	 *
 	 * @param string $fbId        	
 	 */
 	function loginFb($fbId) {

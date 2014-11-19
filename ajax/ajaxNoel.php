@@ -12,7 +12,8 @@ if (! isset ( $_SERVER ['HTTP_REFERER'] )) {
 <a href="#drawLastLastYear" id="drawLastLastYear">Tirage 2012</a>
 <a href="#reset" id="reset" style="display: none">Remettre à zéro</a>
 <a href="#text" id="opener" style="display: none">Afficher le texte</a>
-<a href="#file" download="résultat.txt" id="file" style="display: none">Télécharger le fichier</a>
+<a href="#file" download="résultat.txt" id="file" style="display: none">Télécharger
+	le fichier</a>
 <p id="wait-animation" style="display: none">Wait</p>
 <?php
 }

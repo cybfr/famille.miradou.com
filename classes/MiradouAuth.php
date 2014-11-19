@@ -36,8 +36,9 @@ class MiradouAuth {
 	}
 	/**
 	 * Enter description here .
+	 *
 	 * ..
-	 * 
+	 *
 	 * @param string $fbId        	
 	 */
 	function loginFb($fbId) {
@@ -51,8 +52,9 @@ class MiradouAuth {
 	}
 	/**
 	 * Enter description here .
+	 *
 	 * ..
-	 * 
+	 *
 	 * @param unknown_type $mailto_addr        	
 	 * @return Ambiguous
 	 */

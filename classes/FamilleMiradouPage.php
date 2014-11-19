@@ -76,8 +76,7 @@ class FamilleMiradouPage {
 	</header>
 	<div id="spacer1"></div>
 		<?php
-	
-}
+	}
 	public function mainFrameHeader($titre) {
 		?>
 	<div id="mainFrame">

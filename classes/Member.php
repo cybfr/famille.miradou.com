@@ -32,8 +32,9 @@ class Member {
 	}
 	/**
 	 * Enter description here .
+	 *
 	 * ..
-	 * 
+	 *
 	 * @param unknown_type $firstname        	
 	 */
 	function __construct(array $member) {

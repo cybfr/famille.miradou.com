@@ -1581,7 +1581,7 @@ button.ui-button::-moz-focus-inner {
 	padding: .2em;
 	zoom: 1;
 }
-	/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
+/* position: relative prevents IE scroll bug (element with position: relative inside container with overflow: auto appear as "fixed") */
 .ui-tabs .ui-tabs-nav {
 	margin: 0;
 	padding: .2em .2em 0;
@@ -1618,7 +1618,7 @@ button.ui-button::-moz-focus-inner {
 	{
 	cursor: pointer;
 }
-	/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
+/* first selector in group seems obsolete, but required to overcome bug in Opera applying cursor: text overall if defined elsewhere... */
 .ui-tabs .ui-tabs-panel {
 	display: block;
 	border-width: 0;
