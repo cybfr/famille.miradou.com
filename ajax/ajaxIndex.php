@@ -3,7 +3,7 @@ require_once 'File/Fortune.php';
 // Grab from a single fortune file:
 try {
 	$fortunes = new File_Fortune ( '/usr/share/games/fortunes/ascii-art2' );
-	echo "<pre style='text-align: left; margin: auto; width: 50em;background-color: black;color: orange;padding: 10px;border-radius: 10px;' >" . $fortunes->getRandom () . "</pre>";
+	echo "<pre style='text-align: left; margin: auto; width: 50em;background-color: black;color: orange;padding: 10px;border-radius: 10px; font-family \"courier newi\", courier, monospace; font-size: 12pt; font-weight: 600;' >" . $fortunes->getRandom () . "</pre>";
 } catch ( File_Fortune_Exception $e ) {
 	echo "Unable to retrieve fortune: " . $e->getMessage () . "\n";
 }
