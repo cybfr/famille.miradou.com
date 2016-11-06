@@ -69,9 +69,9 @@ switch ($_REQUEST ['action']) {
 	case 'reqdraw' :
 		exit ( myAjaxFmt ( $my->getValidGiftDraw () ) );
 	case 'reqdrawLastLastYear' :
-		exit ( myAjaxFmt ( $my->getdbGiftDraw ( "2012", '2c8lloigsh3bqe1p6726t55k71' ) ) );
-	case 'reqdrawLastYear' :
 		exit ( myAjaxFmt ( $my->getdbGiftDraw ( "2013", 'frv' ) ) );
+	case 'reqdrawLastYear' :
+		exit ( myAjaxFmt ( $my->getdbGiftDraw ( "2014", 'frv' ) ) );
 	case 'resetdraw' :
 		exit ( myAjaxFmt ( $my->resetGiftDraw () ) );
 	case 'reqids' :

@@ -36,6 +36,7 @@ class Family extends BaseFamily {
 				);
 				$this->drawers [] = $member->id;
 			}
+			$this->add_constraint ( $this->getdbGiftDraw ( "2014", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2013", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2012", '6h8e8j7ajisck7vnvo6vkgti56' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2011", '2c8lloigsh3bqe1p6726t55k71' ) );
