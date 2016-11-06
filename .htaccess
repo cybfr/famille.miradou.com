@@ -10,7 +10,7 @@ ErrorDocument 408 /index.php?page=Error&error=408
 ErrorDocument 409 /index.php?page=Error&error=409
 ErrorDocument 410 /index.php?page=Error&error=410
 ErrorDocument 500 /index.php?page=Error&error=500
-php_value include_path ".:/usr/share/php:/usr/local/lib/php:/var/www/famille.miradou.com/"
+php_value include_path ".:/usr/share/php:/usr/local/lib/php:/var/www/html/famille.miradou.com/"
 
 
 RewriteEngine On
