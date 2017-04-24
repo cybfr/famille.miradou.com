@@ -109,7 +109,7 @@ class FamilleMiradouPage {
 				Creative Commons Paternité - Partage à l&#39;Identique 2.0 France</a>.<br>
 			Le code source est sous <a
 				href="http://www.gnu.org/licenses/gpl.html">GPLV3</a> et est
-			disponible <a href="https://github.com/cybfr/famille.miradou.com">ici</a>.
+			disponible <a href="https://github.com/cybfr/famille.miradou.com">ici</a> V0.1.
 		</div>
 		<div id="bottomright"></div>
 	</footer>
