@@ -34,12 +34,21 @@ class Family extends BaseFamily {
 				$this->members [$member ['id']] = new member ( $member );
 			}
 			foreach ( $this->members as $id => $member ) {
-				$this->constraints [$id] = array (
+				/* ********* TODO ****** if $this->members [$member->spouse]->id  ???????  */
+				if ( isset( $this->members [$member->spouse]->id ) ) {
+				  $this->constraints [$id] = array (
 						$member->id,
 						$this->members [$member->spouse]->id 
-				);
+				  );
+				} else {
+				  $this->constraints [$id] = array (
+                                                $member->id,
+						''
+				  );
+				}
 				$this->drawers [] = $member->id;
 			}
+			$this->add_constraint ( $this->getdbGiftDraw ( "2015", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2014", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2013", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2012", '6h8e8j7ajisck7vnvo6vkgti56' ) );
@@ -222,7 +231,8 @@ class Family extends BaseFamily {
 				// $row = mysql_fetch_array($result);
 				$drawing [$row ['tireur']] = $row ['tire'];
 			}
-			return ($drawing);
+			if (isset($drawing)) { return ($drawing); } 
+			else { error_log("\$drawing undefined for $year $user"); }
 		}
 	}
 	/**

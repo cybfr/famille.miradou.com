@@ -22,9 +22,10 @@
  * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
  * THE SOFTWARE.
  */
-$message [403] = 'Accès interdit.';
-$message [404] = "Ressource non trouvée.";
-$message [405] = "Méthode de requête non autorisée";
+$message [0]   = "Erreur";
+$message [403] = '403 : Accès interdit.';
+$message [404] = "404 : Ressource non trouvée.";
+$message [405] = "405 :Méthode de requête non autorisée";
 $message [406] = "Toutes les réponses possibles seront refusées.";
 $message [407] = "Accès à la ressource autorisé par identification avec le proxy.";
 $message [500] = 'Erreur interne';
