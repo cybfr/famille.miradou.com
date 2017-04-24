@@ -17,13 +17,17 @@ class Family extends BaseFamily {
 		include 'include/mysqlsecrets.php';
 		$this->link = mysql_connect ( $server, $username, $password ) or die ( "Impossible de se connecter : " . mysql_error () );
 		mysql_query ( "SET NAMES 'utf8'" );
-		$query = "SELECT T1 . *
-				FROM  `famille`.`membres` T1,  `famille`.`membres` T2
-				WHERE (
-				( T1.mother =  'janic' AND T1.father =  'alain' )
-				OR 	( T2.mother =  'janic' AND T2.father =  'alain'
-				)
-				) AND T2.spouse = T1.id";
+		$query = "
+ 			SELECT T1 . *
+		          FROM  `famille`.`membres` T1,  `famille`.`membres` T2
+                          WHERE (
+				 (
+                                   ( T1.mother =  'janic' AND T1.father =  'alain' ) 
+                                   OR ( T2.mother =  'janic' AND T2.father =  'alain' ) 
+                                 ) AND ( T2.spouse = T1.id  ) 
+                                 OR (T1.id = T2.id AND T1.spouse='' AND T1.father = 'alain') 
+                               );
+                ";
 		$result = mysql_query ( $query );
 		if ($result) {
 			while ( $member = mysql_fetch_assoc ( $result ) ) {
@@ -36,6 +40,7 @@ class Family extends BaseFamily {
 				);
 				$this->drawers [] = $member->id;
 			}
+			$this->add_constraint ( $this->getdbGiftDraw ( "2014", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2013", 'frv' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2012", '6h8e8j7ajisck7vnvo6vkgti56' ) );
 			$this->add_constraint ( $this->getdbGiftDraw ( "2011", '2c8lloigsh3bqe1p6726t55k71' ) );
